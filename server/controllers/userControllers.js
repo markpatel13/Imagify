@@ -35,25 +35,37 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res) => {
     try{
         const {email,password} = req.body;
-        const user = await userModel.findOne({ email });
+        const user = await userModel.findOne({email});
 
-        if (!user) {
+        if(!user) {
             return res.json({ success: false, message: 'User not found' });
         }
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password,user.password);
 
-        if (isMatch) {
+        if(isMatch) {
             const token = jwt.sign({id: user._id }, process.env.JWT_SECRET);
-            res.json({ success: true, message: 'User Registered Successfully', user: {name: user.name}, token });
+            res.json({success: true,message: 'User Registered Successfully',user: {name: user.name},token});
         }
         else{
-            return res.json({ success: false, message: 'Invalid credentials' });
+            return res.json({success: false,message: 'Invalid credentials' });
         }
     }catch(error) {
+        console.log(error);
+        res.json({success: false,message: error.message });
+    }
+}
+
+const userCredits = async (req, res) => {
+    try {
+            const {userId} = req.body;
+
+            const user = await userModel.findById(userId)
+            res.json({success:true,credits:user.creditBalance,user:{name:user.name}})
+
+    }catch (error) {
         console.log(error);
         res.json({ success: false, message: error.message });
     }
 }
-
-export { registerUser, loginUser };
+export {registerUser, loginUser, userCredits};

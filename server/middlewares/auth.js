@@ -32,7 +32,7 @@ const userAuth = async (req, res, next) => {
     try {
         const token = req.headers.token || req.headers.authorization?.split(" ")[1];
 
-        if (!token) {
+        if(!token) {
             return res.json({ success: false, message: "No token provided" });
         }
 
@@ -44,7 +44,7 @@ const userAuth = async (req, res, next) => {
 
         req.body.userId = decoded.id;
         next();
-    } catch (error) {
+    }catch (error) {
         console.log("JWT error:", error.message);
         return res.json({ success: false, message: "Invalid token" });
     }

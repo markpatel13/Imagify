@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 const registerUser = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const {name,email,password } = req.body;
         if (!name || !email || !password) {
             return res.json({ success: false, message: 'Missing Details' });
         }
@@ -20,13 +20,14 @@ const registerUser = async (req, res) => {
 
         const newUser = new userModel(userData);
         const user = await newUser.save();
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        // const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
         console.log("SECRET USED FOR SIGNING:", process.env.JWT_SECRET);
 
-        res.json({ success: true, message: 'User Registered Successfully', user: { name: user.name }, token });
+        res.json({ success: true,token,user: { name: user.name } });
     }
     catch (error) {
-        console.log(error);
+        console.log(error)
         res.json({ success: false, message: error.message });
     }
 
@@ -45,8 +46,8 @@ const loginUser = async (req, res) => {
         const isMatch = await bcrypt.compare(password, user.password)
 
         if (isMatch) {
-            const token = jwt.sign({ id: user._id },process.env.JWT_SECRET);
-            res.json({ success: true, message: 'User Loggedin Successfully', user: { name: user.name }, token });
+            const token = jwt.sign({id:user._id},process.env.JWT_SECRET)
+           res.json({ success: true,token,user: { name: user.name } });
         }
         else {
             return res.json({ success: false, message: 'Invalid credentials' });
@@ -72,17 +73,17 @@ const loginUser = async (req, res) => {
 // }
 const userCredits = async (req, res) => {
     try {
-        const { userId } = req.body;
+        const {userId} = req.body;
 
-        if (!userId) {
-            return res.json({ success: false, message: "User ID not provided" });
-        }
+        // if (!userId) {
+        //     return res.json({ success: false, message: "User ID not provided" });
+        // }
 
-        const user = await userModel.findById(userId);
+        const user = await userModel.findById(userId)
 
-        if (!user) {
-            return res.json({ success: false, message: "User not found" });
-        }
+        // if (!user) {
+        //     return res.json({ success: false, message: "User not found" });
+        // }
 
         res.json({
             success: true,

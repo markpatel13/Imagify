@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
+import { AppContext } from '../context/AppContext';
 
 function Result() {
 
@@ -9,22 +10,20 @@ function Result() {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
+  const {generateImage} = useContext(AppContext)
+
   const onSubmitHandler = async (e) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-    
-    setLoading(true);
-    try {
-      // TODO: Implement API call to generate image
-      // Simulating API call delay
-      setTimeout(() => {
-        setLoading(false);
-        setIsImageLoaded(true);
-      }, 10000);
-    } catch (error) {
-      console.error('Error generating image:', error);
-      setLoading(false);
+    e.preventDefault()
+    setLoading(true)
+
+    if(input){
+      const image = await generateImage(input)
+      if(image){
+        setIsImageLoaded(true)
+        setImage(image)
+      }
     }
+    setLoading(false)
   }
 
   return (

@@ -1,4 +1,5 @@
 {
+  "react-scripts": "5.0.1", 
   "name": "server",
   "version": "1.0.0",
   "description": "text to image Generator",

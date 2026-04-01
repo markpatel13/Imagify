@@ -224,12 +224,8 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-**Krish**
+**Krish** and **Mark**
 
-## Contact
-
-- **GitHub**: [your-username](https://github.com/your-username)
-- **Email**: your-email@example.com
 
 For questions, bug reports, or feature requests, please open an issue on GitHub or contact the author directly.
 

@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Imagify - AI Text to Image Generator
-=======
 # Imagify
 Text to Image Generator SAAS Application with integrated razor pay
 

@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 # Imagify - AI Text to Image Generator
+=======
+# Imagify
+Text to Image Generator SAAS Application with integrated razor pay
+
+DEMO Screenshot
+<img width="1848" height="926" alt="image" src="https://github.com/user-attachments/assets/8d540774-d28b-4ba0-94b5-c043bcedd7ea" />
+<img width="1864" height="935" alt="image" src="https://github.com/user-attachments/assets/0b537e02-6eeb-404f-a2f0-231dfd7a1849" />
+
+>>>>>>> 4eacdaf1d70f9a0755ef6343dcfbbe5691f50468
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen)](https://nodejs.org/)
@@ -218,15 +228,25 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ## Author
 
+<<<<<<< HEAD
 **Krish**
 
 ## Contact
 
 - **GitHub**: [your-username](https://github.com/your-username)
 - **Email**: your-email@example.com
+=======
+**Krish** and **Mark**
+
+>>>>>>> 4eacdaf1d70f9a0755ef6343dcfbbe5691f50468
 
 For questions, bug reports, or feature requests, please open an issue on GitHub or contact the author directly.
 
 ---
 
 *Made with ❤️ using React and Node.js*
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4eacdaf1d70f9a0755ef6343dcfbbe5691f50468
